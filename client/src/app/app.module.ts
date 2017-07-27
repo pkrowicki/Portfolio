@@ -13,6 +13,7 @@ import {RegistrationComponent} from './security/registration/registration.compon
 import {ArticlesModule} from './articles/articles.module';
 import {ArticlesViewComponent} from './articles/articles-view/articles-view.component';
 import {ArticlesHttpService} from './articles/articles-http.service';
+import { FrontPageComponent } from './front-page/front-page.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {ArticlesHttpService} from './articles/articles-http.service';
     LoginFormComponent,
     RegistrationComponent,
     ArticlesViewComponent,
+    FrontPageComponent,
   ],
   imports: [
     BrowserModule,
