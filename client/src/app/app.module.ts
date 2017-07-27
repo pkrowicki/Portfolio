@@ -1,6 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
 import {AppComponent} from './app.component';
 import {UsersModule} from './users/users.module';
 import {SecurityService} from './security/security.service';
@@ -14,6 +13,7 @@ import {ArticlesModule} from './articles/articles.module';
 import {ArticlesViewComponent} from './articles/articles-view/articles-view.component';
 import {ArticlesHttpService} from './articles/articles-http.service';
 import { FrontPageComponent } from './front-page/front-page.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +22,7 @@ import { FrontPageComponent } from './front-page/front-page.component';
     RegistrationComponent,
     ArticlesViewComponent,
     FrontPageComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
-<div><button class="btn" (click) = "showTestArticle(1)" >Show Article 1</button>
-<button (click)="showAllArticles()">Show All</button>
+<div>
+  <button class="btn btn-default" (click)="showTestArticle(1)">Show Article 1</button>
+  <button class="btn btn-default" (click)="showAllArticles()">Show All</button>
 </div>
 <div>
   <h4 style="font-size: 30px">{{ title }}</h4>
@@ -12,10 +13,10 @@
   <ul>
     <li *ngFor="let articlee of articles">
 
-        <h4 style="font-size: 30px">{{ articlee.title }}</h4>
-        <h2 style="font-size: 22px">
-          <span color="red">{{ articlee.content }}</span>
-        </h2>
+      <h4 style="font-size: 30px">{{ articlee.title }}</h4>
+      <h2 style="font-size: 22px">
+        <span color="red">{{ articlee.content }}</span>
+      </h2>
     </li>
   </ul>
 

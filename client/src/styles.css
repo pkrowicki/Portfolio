@@ -1,1 +1,171 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "Kelson Sans";
+  src: url("assets/fonts/KelsonSansRegular.otf");
+}
+
+body {
+  font: 100%/1.5 Kelson Sans;
+  background: -webkit-linear-gradient(90deg, #16222A 10%, #3A6073 90%) !important; /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #16222A 10%, #3A6073 90%) !important; /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #16222A 10%, #3A6073 90%) !important; /* IE10 */
+  background:      -o-linear-gradient(90deg, #16222A 10%, #3A6073 90%) !important; /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #16222A 10%, #3A6073 90%) !important; /* W3C */
+}
+
+.bigwords {
+  text-decoration-color: floralwhite;
+  text-shadow: 3px 2px #707070;
+}
+
+.jumbotron{
+  margin-bottom:0 !important;
+  /*background:rgba(255,255,255,.9) !important;*/
+}
+.fluid_container{
+  /*background:rgb(15,16,18);*/
+}
+
+.parallax {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 300px;
+  background:rgb(20,20,20);
+}
+.parallax__group {
+  height: 260px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease 0s;
+  z-index:100;
+  height:70%;
+}
+.parallax__layer {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.parallax__layer--base {
+  transform: translateZ(0px);
+  z-index: 4;
+}
+.parallax__layer--back {
+  transform: translateZ(-300px) scale(2);
+  z-index: 3;
+  height:100%;
+}
+body, html {
+  overflow: hidden;
+}
+.parallax {
+  font-size: 100%;
+}
+img.logo_image {
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -80%);
+  width:100%;
+}
+#group1 {
+  z-index: 3;
+  height:70%;
+}
+#group1 .parallax__layer--back {
+}
+
+.parent2 {
+  top:15px;
+  left:15px;
+  position:fixed;
+  display:block;
+  width:100px;
+  height:100px;
+  background-color:transparent;
+  border-radius:50%;
+  z-index:20;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+.test1 {
+  width:60%;
+  height:60%;
+  background-color: #252525;
+  border-radius:50%;
+  position:absolute;
+  color:white;
+  text-align:center;
+  line-height:70px;
+  top:25%;
+  left:25%;
+  z-index:19;
+  transition: all 500ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
+  position:absolute;
+}
+.test2 {
+  width:60%;
+  height:60%;
+  background-color: #252525;
+  border-radius:50%;
+  position:absolute;
+  color:white;
+  text-align:center;
+  line-height:70px;
+  top:25%;
+  left:25%;
+  z-index:19;
+  transition: all 500ms cubic-bezier(0.680, -0.550, 0.265, 1.550) .2s;
+}
+.test3 {
+  width:60%;
+  height:60%;
+  background-color: #252525;
+  border-radius:50%;
+  position:absolute;
+  color:white;
+  text-align:center;
+  line-height:70px;
+  top:25%;
+  left:25%;
+  transition: all 500ms cubic-bezier(0.680, -0.550, 0.265, 1.550) .4s;
+}
+.test4 {
+  width:60%;
+  height:60%;
+  background-color: #252525;
+  border-radius:50%;
+  position:absolute;
+  color:white;
+  text-align:center;
+  line-height:70px;
+  top:25%;
+  left:25%;
+  transition: all 500ms cubic-bezier(0.680, -0.550, 0.265, 1.550) .6s;
+}
+.mask2 {
+  top:15px;
+  left:15px;
+  width:100px;
+  height:100px;
+  background: #252525;
+  border-radius:50%;
+  position:absolute;
+  z-index:21;
+  color:white;
+  text-align:center;
+  line-height:120px;
+  cursor:pointer;
+  position:fixed;
+}
+

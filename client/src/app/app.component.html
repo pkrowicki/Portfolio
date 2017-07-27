@@ -1,3 +1,66 @@
+<app-nav-bar></app-nav-bar>
+<div class="fluid_container">
+  <div class="parallax">
+    <div id="group1" class="parallax__group">
+      <div class="parallax__layer parallax__layer--back">
+        <img class="logo_image"
+             src="../assets/images/jumbotron.jpg">
+      </div>
+    </div><!-- end of group1-->
+    <div class="parallax__group">
+      <div class="parallax__layer parallax__layer--base">
+        <div class="jumbotron" style="text-align:center; color:rgb(18,20,21);">
+          <router-outlet></router-outlet>
+        </div><!--end of jumbotron -->
+        <br><!-- break for spacing-->
+        <div class="container">
+        <br><!-- break for spacing-->
+        <div class="row">
+          <div class="col-sm-4">
+            <h1>About me:</h1>
+            <p>One, two, three, because I'm too lazy to generate lorem ipsum. Well, it fits "about me" just right too
+              :D</p>
+          </div>
+          <div class="col-sm-4">
+            <h1>Links:</h1>
+            <div>
+              <ul class="list-group">
+                <li class="list-group-item"><a href="#" class=""><i class="fa fa-facebook-official"
+                                                                    aria-hidden="true"></i> Fakebook</a></li>
+                <li class="list-group-item"><a href="#" class="">Placeholder 2</a></li>
+                <li class="list-group-item"><a href="#" class="">Placeholder 3</a></li>
+                <li class="list-group-item"><a href="#" class="">Placeholder 4</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <h1>Some other random sh... :P</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Nunc lacus libero, dignissim ac vulputate at, bibendum quis mauris.
+              Vestibulum et diam auctor, iaculis tellus non, sodales neque.
+              Morbi sed neque auctor, tincidunt neque sit amet, vehicula erat.
+              Maecenas auctor bibendum metus, non dapibus libero eleifend id.
+              Quisque laoreet nibh id nisi suscipit, nec rhoncus urna tristique.
+              In facilisis efficitur purus, eu bibendum metus consectetur vel.
+              Duis consectetur vitae nunc at convallis. Sed cursus vehicula elit, at sollicitudin odio sollicitudin nec.
+              Nunc vulputate justo in dignissim tincidunt.</p>
+          </div>
+        </div><!-- end of row-->
+        <br><!-- break for a little spacing-->
+        <div class="row">
+          <div class="col-sm-6">
+            <h3>Additional info, maybe?</h3>
+            <p>Some other info, I don't know what should be in portfolio...
+          </div>
+        </div><!--end of row-->
+      </div><!--end of container-->
 
-<router-outlet></router-outlet>
+      <footer style="text-align:center; min-height:100px;">
+        <p style="font-style:italic;">Simple footer. TODO later - export those to separate modules.</p>
+      </footer>
+
+    </div><!--end of parallax base-->
+  </div><!--end of parallax group -->
+</div><!--end of parallax-->
+</div><!--end of fluid_container-->
 
