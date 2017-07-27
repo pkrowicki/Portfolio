@@ -1,0 +1,22 @@
+<form #loginForm="ngForm" novalidate="true" (ngSubmit)="login()">
+  <div>
+    <div>
+      <label>Login:</label>
+      <input name="username" [(ngModel)]="username" required>
+    </div>
+    <div>
+      <label>Password:</label>
+      <input type="password" name="password" [(ngModel)]="password" required>
+    </div>
+    <div>
+      <button [disabled]="loginForm.invalid || pendingRequest">Login</button>
+    </div>
+
+  </div>
+</form>
+<div *ngIf="loginError">
+  Invalid user or password
+</div>
+
+
+
