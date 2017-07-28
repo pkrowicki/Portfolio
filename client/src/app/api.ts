@@ -3,9 +3,8 @@
  */
 
 export class Api {
-
   oauthServer = 'http://localhost:8080/oauth/token';
-  activeUser = 'http://localhost:8080/api-v1/users/active';
   articles = 'http://localhost:8080/api-v1/articles';
-
+  users = `http://localhost:8080/api-v1/users`;
+  activeUser = `${this.users}/active`;
 }

@@ -1,13 +1,13 @@
 export class Article {
 
   id: number
-  title: string
-  content: string
+  articleTitle: string
+  articleContent: string
 
   constructor(json) {
     this.id = json['id']
-    this.title = json['articleTitle']
-    this.content = json['articleContent']
+    this.articleTitle = json['articleTitle']
+    this.articleContent = json['articleContent']
   }
 
 }

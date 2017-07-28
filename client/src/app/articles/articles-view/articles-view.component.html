@@ -1,23 +1,21 @@
-<div>
-  <button class="btn btn-default" (click)="showTestArticle(1)">Show Article 1</button>
-  <button class="btn btn-default" (click)="showAllArticles()">Show All</button>
+<button class="btn btn-default" (click)="setNum(1)">Show All</button>
+<div class="btn-group">
+  <button type="button" class="btn btn-default">All articles</button>
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+<ul class="dropdown-menu">
+  <li class="btn btn-default" (click)="setNum2(2,1)">Show Article 1</li>
+  <li class="btn btn-default" (click)="setNum2(3,2)">Show Article 2</li>
+  <li class="btn btn-default" (click)="setNum2(4,3)">Show Article 3</li>
+</ul>
 </div>
-<div>
-  <h4 style="font-size: 30px">{{ title }}</h4>
-  <h2 style="font-size: 22px">
-    <span color="red">{{ content }}</span>
-  </h2>
-</div>
-<div>
 
-  <ul>
-    <li *ngFor="let articlee of articles">
-
-      <h4 style="font-size: 30px">{{ articlee.title }}</h4>
-      <h2 style="font-size: 22px">
-        <span color="red">{{ articlee.content }}</span>
-      </h2>
-    </li>
-  </ul>
-
+<div [ngSwitch]="num">
+  <div *ngSwitchCase="'1'" [@focusPanel]='state'><app-all-articles class="animate-switch"></app-all-articles></div>
+  <div *ngSwitchCase="'2'" [@focusPanel]='state'><app-single-article [idArticle]="idArticle"></app-single-article></div>
+  <div *ngSwitchCase="'3'" [@focusPanel]='state'><app-single-article [idArticle]="idArticle"></app-single-article></div>
+  <div *ngSwitchCase="'4'"  [@focusPanel]='state' ><app-single-article [idArticle]="idArticle"></app-single-article></div>
+  <div *ngSwitchDefault>This is Default</div>
 </div>

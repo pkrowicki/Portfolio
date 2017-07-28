@@ -37,4 +37,9 @@ export class ArticlesHttpService {
       .toArray();
   }
 
+  saveArticle(article: any): Observable<any> {
+    console.log(article);
+    return this.http.post(this.api.articles, article);
+  }
+
 }

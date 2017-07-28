@@ -6,35 +6,88 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mapTo';
 import 'rxjs/add/operator/do';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {User} from "./user";
 
 @Injectable()
 export class SecurityService {
 
-  events: Observable<any>;
+  user: Observable<User>
 
-  private authenticationEvents = new BehaviorSubject<any>(1);
+  private authorizationHeader = 'Authorization'
+  private userKey = 'user'
+  private tokenKey = 'token'
+  private tokenType = 'bearer'
+  private userSubject = new BehaviorSubject<User>(null)
 
   constructor(private http: Http, private requestOptions: RequestOptions, private api: Api) {
-    this.events = this.authenticationEvents.asObservable();
+    this.user = this.userSubject.asObservable()
+    this.restoreSecurityContext()
   }
 
-  isAuthenticated() {
-    return this.authenticationEvents.getValue();
+  private restoreSecurityContext() {
+    let token = sessionStorage.getItem(this.tokenKey)
+    if (token) {
+      this.setToken(token)
+    }
+    let user = sessionStorage.getItem(this.userKey)
+    if (user) {
+      this.userSubject.next(JSON.parse(user))
+    }
   }
 
-  login(username: string, password: string): Observable<boolean> {
-    const payload = this.preparePayload(username, password);
+  getUser(): User {
+    return this.userSubject.getValue()
+  }
+
+  login(username: string, password: string): Observable<User> {
+    let credentials = this.prepareCredentials(username, password)
+    return this.retrieveToken(credentials)
+      .do(token => this.setToken(token))
+      .flatMap(() => this.retrieveUser())
+      .do(user => this.setUser(user))
+  }
+
+  private prepareCredentials(username: string, password: string): URLSearchParams {
+    let payload = new URLSearchParams()
+    payload.set('username', username)
+    payload.set('password', password)
+    payload.set('grant_type', 'password')
+    payload.set('client_id', 'connect-app')
+    return payload
+  }
+
+  private retrieveToken(payload: URLSearchParams): Observable<string> {
     return this.http.post(this.api.oauthServer, payload)
       .map(response => response.json())
       .map(json => json.access_token)
-      .do(token => this.onLoginSuccess(token))
-      .mapTo(true);
+  }
+
+  private setToken(token: string) {
+    sessionStorage.setItem(this.tokenKey, token)
+    this.requestOptions.headers.set(this.authorizationHeader, `${this.tokenType} ${token}`)
+  }
+
+  private retrieveUser(): Observable<User> {
+    return this.http.get(this.api.activeUser)
+      .map(response => response.json())
+      .map(json => new User(json))
+  }
+
+  private setUser(user: User) {
+    sessionStorage.setItem(this.userKey, JSON.stringify(user))
+    this.userSubject.next(user)
   }
 
   logout() {
-    this.removeAuthorizationHeader();
-    this.authenticationEvents.next(false);
+    this.removeToken()
+    this.userSubject.next(null)
   }
+
+  private removeToken() {
+    sessionStorage.removeItem(this.tokenKey)
+    this.requestOptions.headers.delete(this.authorizationHeader)
+  }
+
 
   register(username: string, password: string) {
     const payload = this.prepareRegisterPayload(username, password);
@@ -44,19 +97,6 @@ export class SecurityService {
     }).
     subscribe(response => console.log(response));
     // return this.http.get(this.api.oauthServer, payload);
-  }
-
-  private removeAuthorizationHeader() {
-    this.requestOptions.headers.delete('Authorization');
-  }
-
-  private onLoginSuccess(token: string) {
-    this.setAuthorizationToken(token);
-    this.authenticationEvents.next(true);
-  }
-
-  private setAuthorizationToken(token: string) {
-    this.requestOptions.headers.set('Authorization', `Bearer ${token}`);
   }
 
   private preparePayload(username: string, password: string): URLSearchParams {

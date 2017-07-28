@@ -14,6 +14,9 @@ import {ArticlesViewComponent} from './articles/articles-view/articles-view.comp
 import {ArticlesHttpService} from './articles/articles-http.service';
 import { FrontPageComponent } from './front-page/front-page.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {SecurityModule} from './security/security.module';
+
 
 @NgModule({
   declarations: [
@@ -22,17 +25,18 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     RegistrationComponent,
     ArticlesViewComponent,
     FrontPageComponent,
-    NavBarComponent,
+    NavBarComponent
   ],
   imports: [
+    SecurityModule,
     BrowserModule,
     UsersModule,
     FormsModule,
     routerModule,
-    ArticlesModule
+    ArticlesModule,
+    BrowserAnimationsModule
   ],
   providers: [
-    SecurityService,
     Api,
     SecurityGuard,
     ArticlesHttpService

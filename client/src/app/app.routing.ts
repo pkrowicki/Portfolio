@@ -4,6 +4,7 @@ import {SecurityGuard} from './security/login-form/security.guard';
 import {RegistrationComponent} from './security/registration/registration.component';
 import {ArticlesViewComponent} from './articles/articles-view/articles-view.component';
 import {FrontPageComponent} from './front-page/front-page.component';
+import {ArticlesAddComponent} from "./articles/articles-add/articles-add.component";
 
 /**
  * Created by Pawel Krowicki on 2017-07-25.
@@ -24,6 +25,9 @@ const routesConfig = [
   },
   {
     path: 'article', component: ArticlesViewComponent, canActivate: [SecurityGuard], title: 'Some articles, maybe?'
+  },
+  {
+    path: 'add', component: ArticlesAddComponent
   }
 ];
 
