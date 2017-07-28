@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-front-page',
@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class FrontPageComponent implements OnInit {
   title = 'Welcome to AnguJava homepage!';
 
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

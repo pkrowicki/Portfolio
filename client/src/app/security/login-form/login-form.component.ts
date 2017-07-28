@@ -9,23 +9,23 @@ import {Router} from '@angular/router';
 })
 export class LoginFormComponent {
 
-  username: string
-  password: string
-  loginError: boolean
-  pendingRequest = false
+  username: string;
+  password: string;
+  loginError: boolean;
+  pendingRequest = false;
 
   constructor(private securityService: SecurityService, private router: Router) {
   }
 
   login() {
-    this.pendingRequest = true
+    this.pendingRequest = true;
     this.securityService.login(this.username, this.password)
       .subscribe(() => {
-        this.router.navigateByUrl('')
+        this.router.navigateByUrl('');
       }, () => {
-        this.loginError = true
-        this.pendingRequest = false
-      })
+        this.loginError = true;
+        this.pendingRequest = false;
+      });
   }
 
 }

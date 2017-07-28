@@ -1,0 +1,14 @@
+
+
+<form #articleForm="ngForm" (ngSubmit)="save(articleForm)">
+
+  <label>Title:</label>
+  <input type="text" class="form-control"   [(ngModel)]="article.articleTitle" name="articleTitle" #username="ngModel" required />
+
+  <label>Content:</label>
+  <input type="text" class="form-control"  [(ngModel)]="article.articleContent" name="articleContent" #password="ngModel" required />
+
+  <button class="btn btn-success" type="submit" [disabled]="articleForm.invalid">Save</button>
+
+</form>
+

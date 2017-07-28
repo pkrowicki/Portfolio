@@ -1,0 +1,22 @@
+<div class="container">
+  <div *ngFor="let article of articles">
+    <h1>{{ article.articleTitle }}</h1>
+    <p class="lead">
+      by <a href="#">Start Bootstrap</a>
+    </p>
+    <hr>
+    <p class="lead">{{ article.articleContent }}</p>
+    <hr>
+    <div class="well">
+      <h4>Leave a Comment:</h4>
+      <form role="form">
+        <div class="form-group">
+          <textarea class="form-control" rows="3" label="TO BE DONE!"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <button type="button" (click)="toTop()" class="btn btn-primary">Scroll to top</button>
+
+    </div>
+  </div>
+</div>
